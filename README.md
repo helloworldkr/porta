@@ -22,8 +22,11 @@ Access your local Antigravity sessions from your phone, tablet, or any remote br
 
 
 <p align="center">
-  <img src="docs/demo.gif" alt="Porta mobile demo" width="360">
+  <img src="docs/mobile-dark.png" alt="Porta Mobile UI — Dark Mode" width="340">
+  &nbsp;&nbsp;
+  <img src="docs/mobile-light.png" alt="Porta Mobile UI — Light Mode" width="340">
 </p>
+
 
 ## Quick start
 
