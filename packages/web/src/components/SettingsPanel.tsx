@@ -158,7 +158,35 @@ export function SettingsPanel({ settings, onUpdate, onBack }: Props) {
       </div>
 
       <div className="settings-body">
+        {/* ── Appearance ── */}
+        <div className="settings-section">
+          <h2 className="settings-section-title">Appearance</h2>
+          <div className="settings-row">
+            <div className="settings-row-info">
+              <span className="settings-row-label">Theme Mode</span>
+              <span className="settings-row-desc">
+                Choose between Dark, Light, or System color preference.
+              </span>
+            </div>
+            <select
+              className="settings-select"
+              value={settings.theme ?? "dark"}
+              onChange={(e) => {
+                onUpdate({
+                  theme: e.target.value as "dark" | "light" | "system",
+                });
+                flashSaved();
+              }}
+            >
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+              <option value="system">System</option>
+            </select>
+          </div>
+        </div>
+
         {/* ── Model ── */}
+
         <div className="settings-section">
           <h2 className="settings-section-title">Model</h2>
           <div className="settings-row">

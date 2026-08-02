@@ -300,7 +300,14 @@ function ChatView() {
           title={headerTitle}
           projectName={projectSlug ?? undefined}
           onMenuToggle={() => setSidebarOpen(true)}
+          theme={settings.theme}
+          onThemeToggle={() =>
+            updateSettings({
+              theme: settings.theme === "light" ? "dark" : "light",
+            })
+          }
         />
+
         {isSettingsPage ? (
           <SettingsPanel
             settings={settings}

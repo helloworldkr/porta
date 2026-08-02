@@ -15,6 +15,7 @@ const DEFAULT_SETTINGS: ClientSettings = {
   defaultModel: DEFAULT_MODEL,
   defaultPlannerType: "conversational",
   browserNotificationsEnabled: false,
+  theme: "dark",
 };
 
 function readSettings(): ClientSettings {
@@ -49,6 +50,27 @@ export function useClientSettings() {
     return () => window.removeEventListener("storage", handler);
   }, []);
 
+  // Sync active theme onto document.documentElement root attribute
+  useEffect(() => {
+    const theme = settings.theme ?? "dark";
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const applyTheme = () => {
+      let activeTheme = theme;
+      if (theme === "system") {
+        activeTheme = mediaQuery.matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", activeTheme);
+    };
+
+    applyTheme();
+
+    if (theme === "system") {
+      mediaQuery.addEventListener("change", applyTheme);
+      return () => mediaQuery.removeEventListener("change", applyTheme);
+    }
+  }, [settings.theme]);
+
   const updateSettings = useCallback((patch: Partial<ClientSettings>) => {
     setSettings((prev) => {
       const next = { ...prev, ...patch };
@@ -59,3 +81,4 @@ export function useClientSettings() {
 
   return { settings, updateSettings } as const;
 }
+
