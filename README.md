@@ -259,7 +259,35 @@ By default, the Porta frontend tries to fetch the API directly. To force it to u
 
 > **Backwards Compatibility Note:** If `VITE_API_BASE` is defined, the frontend will bypass the proxy entirely and attempt to communicate directly with the backend. This is fully supported and recommended for local development (LAN access) or deployments where the backend is not protected by Cloudflare Access. Additionally, the proxy will gracefully skip Service Token injection if the `CF_ACCESS_CLIENT_ID` environment variables are missing.
 
+## 🔄 Keeping this Fork Updated
+
+To keep your fork up to date with new releases and upstream bug fixes from [L1M80/porta](https://github.com/L1M80/porta):
+
+### Terminal Workflow (Recommended)
+
+```bash
+# 1. Fetch the latest changes from the original repository
+git fetch upstream
+
+# 2. Rebase your local main branch onto upstream main
+git checkout main
+git rebase upstream/main
+
+# 3. Push the synced main branch to your GitHub fork
+git push origin main --force-with-lease
+```
+
+### 1-Click Sync via GitHub
+
+1. Visit your fork on GitHub: [github.com/helloworldkr/porta](https://github.com/helloworldkr/porta)
+2. Click **"Sync fork"** → **"Update branch"**.
+3. In your local terminal, pull the synced commits:
+   ```bash
+   git checkout main && git pull origin main
+   ```
+
 ## Contributing
+
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for development workflow, branch
 strategy, and PR guidelines.
