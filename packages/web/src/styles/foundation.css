@@ -2,58 +2,61 @@
 
 :root {
   /* ── Primitives — RGB triplets for alpha composition ── */
-  --c-accent: 108 139 239;
-  --c-success: 76 175 80;
-  --c-error: 239 83 80;
-  --c-lift: 255 255 255; /* Surface elevation tint (invert for light theme) */
+  --c-accent: 99 102 241;
+  --c-success: 16 185 129;
+  --c-error: 244 63 94;
+  --c-warning: 245 158 11;
+  --c-lift: 255 255 255; /* Surface elevation tint */
 
   /* ── Backgrounds ── */
-  --bg-primary: #0d0f13;
-  --bg-secondary: #14171e;
-  --bg-tertiary: #1a1e28;
-  --bg-surface: #1e2230;
-  --bg-hover: #252a38;
-  --bg-active: #2d3348;
+  --bg-primary: #0b0c10;
+  --bg-secondary: #12151e;
+  --bg-tertiary: #191c28;
+  --bg-surface: #1f2434;
+  --bg-hover: #292f44;
+  --bg-active: #323a54;
 
   /* ── Borders ── */
-  --border-subtle: #2a2f3e;
-  --border-default: #353b4e;
-  --border-focus: rgb(var(--c-accent));
+  --border-subtle: #242938;
+  --border-default: #31374a;
+  --border-focus: #6366f1;
 
   /* ── Text ── */
-  --text-primary: #e8eaf0;
-  --text-secondary: #9ba3b8;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
   --text-tertiary: #6b7280;
-  --text-accent: #8ba4f8;
+  --text-accent: #a5b4fc;
   --text-on-solid: #ffffff;
 
   /* ── Accent derived ── */
-  --accent: rgb(var(--c-accent));
-  --accent-hover: #8ba4f8;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
 
   /* ── Typography ── */
   --font-sans:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "SFMono-Regular", Consolas, monospace;
 
   /* ── Layout ── */
   --sidebar-width: 280px;
-  --header-height: 48px;
-  --input-height: 56px;
+  --header-height: 52px;
+  --input-height: 60px;
 
   /* ── Radii ── */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
 
   /* ── Shadows ── */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.65);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);
 
   /* ── Transitions ── */
-  --transition-fast: 120ms ease;
-  --transition-normal: 200ms ease;
+  --transition-fast: 140ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 220ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ── Reset ── */
@@ -77,15 +80,15 @@ body,
 }
 
 html {
-  /* Disable 300ms tap delay on mobile by eliminating double-tap-to-zoom */
+  /* Disable 300ms tap delay on mobile */
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
   font-family: var(--font-sans);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.6;
   color: var(--text-primary);
   background: var(--bg-primary);
   -webkit-font-smoothing: antialiased;
@@ -96,6 +99,7 @@ body {
 
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -103,12 +107,108 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-subtle);
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--border-default);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ── Light Theme Tokens ── */
+
+[data-theme="light"] {
+  --c-lift: 0 0 0;
+
+  /* ── Backgrounds ── */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-hover: #e2e8f0;
+  --bg-active: #cbd5e1;
+
+  /* ── Borders ── */
+  --border-subtle: #e2e8f0;
+  --border-default: #cbd5e1;
+  --border-focus: #4f46e5;
+
+  /* ── Text ── */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-accent: #4f46e5;
+  --text-on-solid: #ffffff;
+
+  /* ── Accent derived ── */
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.12);
+}
+
+/* Light mode specific element adjustments */
+[data-theme="light"] .message-body pre {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+[data-theme="light"] .message-body pre code {
+  color: #0f172a;
+}
+
+[data-theme="light"] .step-card-output,
+[data-theme="light"] .diff-content,
+[data-theme="light"] .thinking-content,
+[data-theme="light"] .implementation-plan-content {
+  background: #f8fafc;
+}
+
+[data-theme="light"] .message.user .message-body {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(129, 140, 248, 0.08) 100%);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #0f172a;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.16);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .scroll-to-bottom-btn {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: var(--text-primary);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Theme toggle button in header */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border-focus);
 }
 
 /* ── Layout ── */
@@ -119,3 +219,5 @@ body {
   width: 100%;
   overflow: hidden;
 }
+
+

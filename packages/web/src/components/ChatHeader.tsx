@@ -1,12 +1,20 @@
-import { IconMenu, IconFolder } from "./Icons";
+import { IconMenu, IconFolder, IconSun, IconMoon } from "./Icons";
 
 interface Props {
   title: string;
   projectName?: string;
   onMenuToggle?: () => void;
+  theme?: "dark" | "light" | "system";
+  onThemeToggle?: () => void;
 }
 
-export function ChatHeader({ title, projectName, onMenuToggle }: Props) {
+export function ChatHeader({
+  title,
+  projectName,
+  onMenuToggle,
+  theme = "dark",
+  onThemeToggle,
+}: Props) {
   return (
     <div className="main-header">
       {onMenuToggle && (
@@ -29,6 +37,16 @@ export function ChatHeader({ title, projectName, onMenuToggle }: Props) {
         {title}
       </span>
       <div className="main-header-actions">
+        {onThemeToggle && (
+          <button
+            className="theme-toggle-btn"
+            onClick={onThemeToggle}
+            title={`Switch theme (current: ${theme})`}
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? <IconMoon size={16} /> : <IconSun size={16} />}
+          </button>
+        )}
         {projectName && (
           <span className="main-header-project">
             <IconFolder size={11} /> {projectName}
@@ -38,3 +56,4 @@ export function ChatHeader({ title, projectName, onMenuToggle }: Props) {
     </div>
   );
 }
+

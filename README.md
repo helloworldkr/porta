@@ -1,17 +1,25 @@
-# Porta
+# Porta (Enhanced Mobile-First UI Fork)
 
 [![CI](https://github.com/L1M80/porta/actions/workflows/ci.yml/badge.svg)](https://github.com/L1M80/porta/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-0.14.0-green)
 
-Remote web interface for [Antigravity](https://antigravity.google/) Agent Manager.  
-Access your local Antigravity sessions from your phone, tablet, or any remote browser through a lightweight LSP bridge.
+Remote web interface for [Antigravity](https://antigravity.google/) Agent Manager with a **redesigned mobile-first UI**, **Light/Dark Theme Switcher**, and **high-readability typography**.
 
-Porta is a two-part system: a **proxy** that bridges your local Antigravity Language Server to the network, and a **web UI** (installable PWA) that gives you a mobile-friendly chat interface.
+Access your local Antigravity sessions from your phone, tablet, or any remote browser through a lightweight LSP bridge.
 
 <p align="center">
   <img src="docs/screenshot.png" alt="Porta — desktop and mobile" width="720">
 </p>
+
+### ✨ Key UI & Mobile Upgrades in this Fork
+- 📱 **Mobile-First Readability**: Larger chat bubbles, generous spacing, 16px input text (eliminates iOS Safari auto-zoom), and 15px/16px base font scaling.
+- 🎨 **Dark / Light Theme System**: Complete Obsidian Dark Mode and Clean Slate Light Mode with one-tap Sun/Moon toggle in the header and System preference detection in Settings.
+- 📜 **Horizontal Code Scrolling**: Code blocks (`<pre>`) maintain proper formatting with horizontal touch scrolling (`white-space: pre; overflow-x: auto;`) instead of awkward text wrapping.
+- 👍 **One-Tap Approve / Reject Buttons**: Touch-friendly 44px action buttons for single-tap command approvals, file permission grants, and interactive questions.
+- 🧠 **Collapsible Reasoning Blocks**: Compact collapsible headers for live thinking and implementation plans with duration badges.
+- 🖐️ **Swipe & Drawer Navigation**: Smooth gesture drawer with 48px touch targets for seamless session switching.
+
 
 <p align="center">
   <img src="docs/demo.gif" alt="Porta mobile demo" width="360">
